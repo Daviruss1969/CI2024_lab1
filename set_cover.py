@@ -1,9 +1,10 @@
 import numpy as np
 
-# Problem consts (do not edit)
+# Problem consts
 UNIVERSES_SIZE = [100, 1000, 10000, 100000, 100000, 100000]
 NUMS_SETS = [10, 100, 1000, 10000, 10000, 10000]
 DENSITIES = [0.2, 0.2, 0.2, 0.1, 0.2, 0.3]
+
 
 # Initialisation
 print('Select your instance for the set cover problem :')
@@ -27,7 +28,7 @@ COSTS = np.pow(SETS.sum(axis=1), 1.1)
 
 def valid(solution: np.ndarray) -> bool:
     """Checks wether solution is valid (ie. covers all universe)"""
-    return np.all(np.logical_or.reduce(SETS[solution])) # phenotype
+    return np.all(np.logical_or.reduce(SETS[solution]))
 
 def cost(solution: np.ndarray) -> int:
     """Returns the cost of a solution (to be minimized)"""
@@ -84,15 +85,32 @@ def multiple_set_cover(trials: int, max_iterations: int)-> np.ndarray:
     print()
     return solution
 
-max_iterations = input('Select your number of iteration for the problem (default 5 000) : ')
+def compute_default_values() -> tuple[int, int]: # return default_max_iterations, default_max_trials
+    """Compute default values according to the problem size"""
+    space_taken = NUM_SETS*UNIVERSE_SIZE
+    if space_taken <= 1_000:
+        return 1_000, 100
+
+    if space_taken <= 100_000:
+        return 5_000, 50
+
+    if space_taken <= 10_000_000:
+        return 8_000, 10
+    
+    return 10_000, 1
+    
+
+default_values = compute_default_values()
+
+max_iterations = input(f'Select your number of iteration for the problem (default {default_values[0]}) : ')
 if max_iterations == '':
-    max_iterations = 5_000
+    max_iterations = default_values[0]
 else :
     max_iterations = int(max_iterations)
 
-trials = input('Select your number of trials for the problem (default 5) : ')
+trials = input(f'Select your number of trials for the problem (default {default_values[1]}) : ')
 if trials == '':
-    trials = 5
+    trials = default_values[1]
 else :
     trials = int(trials)
 
