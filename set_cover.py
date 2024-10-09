@@ -89,7 +89,7 @@ def compute_default_values() -> tuple[int, int]: # return default_max_iterations
     """Compute default values according to the problem size"""
     space_taken = NUM_SETS*UNIVERSE_SIZE
     if space_taken <= 1_000:
-        return 1_000, 100
+        return 3_000, 100
 
     if space_taken <= 100_000:
         return 5_000, 50

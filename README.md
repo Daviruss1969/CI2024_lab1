@@ -2,6 +2,8 @@
 
 This repository contains my work for the Lab 1 of the computational intelligence courses on the [Set cover problem](https://en.wikipedia.org/wiki/Set_cover_problem).
 
+![Lab1](./resources/Lab1.png)
+
 ## Notebook
 
 The [set_cover.ipnyb](./set_cover.ipynb) file contains my reflexion about the problem. How I end up step by step with this solution.
@@ -60,3 +62,17 @@ python set_cover.py # Run the program
 You will be finally prompted to first choose your instances, they are the same of the Lab 1 definition.
 
 Then you can choose first the number of iterations and finally the number of trials (see [the code](./set_cover.py) or [the notebook](./set_cover.ipynb) for more information). You can also decide to let the default values (computed by a function) by putting nothing. In that way, you can simply change the constants if it's take to long in your computer.
+
+
+## Results
+
+Theses results were computed using the default number of iterations and trials.
+
+| Instance  | Universe size | Num sets  | Density   | Time      | Cost                  |
+|---------- |---------------|-----------|-----------|-----------|-----------------------|
+| 1         | 100           | 10        | .2        | 0m4.605s  | 265.5456989045732     |
+| 2         | 1,000         | 100       | .2        | 0m4.434s  | 6,407.724436382979    |
+| 3         | 10,000        | 1,000     | .2        | 0m7.053s  | 127,183.7964370989    |
+| 4         | 100,000       | 10,000    | .1        | 9m56.090s | 42,400,120.380526625  |
+| 5         | 100,000       | 10,000    | .2        | 9m48.346s | 87,754,292.38328813   |
+| 6         | 100,000       | 10,000    | .3        | 9m47.708s | 146,410,871.2097435   |
